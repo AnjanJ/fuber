@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  cab: one
+  status: MyString
+  destination_lat: 9.99
+  destination_lng: 9.99
+  distance: 9.99
+  cost: 9.99
+  paid: false
+
+two:
+  user: two
+  cab: two
+  status: MyString
+  destination_lat: 9.99
+  destination_lng: 9.99
+  distance: 9.99
+  cost: 9.99
+  paid: false
