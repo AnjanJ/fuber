@@ -14,7 +14,11 @@ class RidesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create ride' do
     assert_difference('Ride.count') do
-      post rides_url, params: { ride: { cab_id: @ride.cab_id, cost: @ride.cost, destination_lat: @ride.destination_lat, destination_lng: @ride.destination_lng, distance: @ride.distance, paid: @ride.paid, status: @ride.status, user_id: @ride.user_id } }, as: :json
+      post rides_url, params: { ride: { cab_id: @ride.cab_id, cost: @ride.cost,
+                                        destination_lat: @ride.destination_lat,
+                                        destination_lng: @ride.destination_lng,
+                                        distance: @ride.distance,
+                                        user_id: @ride.user_id } }, as: :json
     end
 
     assert_response 201
@@ -26,7 +30,7 @@ class RidesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update ride' do
-    patch ride_url(@ride), params: { ride: { cab_id: @ride.cab_id, cost: @ride.cost, destination_lat: @ride.destination_lat, destination_lng: @ride.destination_lng, distance: @ride.distance, paid: @ride.paid, status: @ride.status, user_id: @ride.user_id } }, as: :json
+    patch ride_url(@ride), params: { ride: { paid: @ride.paid } }, as: :json
     assert_response 200
   end
 

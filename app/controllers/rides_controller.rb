@@ -17,7 +17,7 @@ class RidesController < ApplicationController
 
   # POST /rides
   def create
-    @ride = Ride.new(ride_params)
+    @ride = Ride.new(create_ride_params)
 
     if @ride.save
       render json: @ride, status: :created, location: @ride
@@ -28,7 +28,7 @@ class RidesController < ApplicationController
 
   # PATCH/PUT /rides/1
   def update
-    if @ride.update(ride_params)
+    if @ride.update(update_payment)
       render json: @ride
     else
       render json: @ride.errors, status: :unprocessable_entity
@@ -48,7 +48,11 @@ class RidesController < ApplicationController
   end
 
   # Only allow a trusted parameter "white list" through.
-  def ride_params
-    params.require(:ride).permit(:user_id, :cab_id, :status, :destination_lat, :destination_lng, :distance, :cost, :paid)
+  def create_ride_params
+    params.require(:ride).permit(:user_id, :cab_id, :status, :destination_lat, :destination_lng)
+  end
+
+  def update_payment
+    params.require(:ride).permit(:paid)
   end
 end
