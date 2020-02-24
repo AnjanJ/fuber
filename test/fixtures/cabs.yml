@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  color: MyString
-  lat: 9.99
-  lng: 9.99
+  color: "pink"
+  lat: 1.99
+  lng: 1.99
+  on_duty: false
 
 two:
-  color: MyString
-  lat: 9.99
-  lng: 9.99
+  color: "blue"
+  lat: 2.99
+  lng: 2.99
+  on_duty: false

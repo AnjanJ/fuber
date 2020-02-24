@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  lat: 9.99
-  lng: 9.99
+  email: "email1@user.com"
+  lat: 1.99
+  lng: 1.99
 
 two:
-  email: MyString
-  lat: 9.99
-  lng: 9.99
+  email: "email2@user.com"
+  lat: 2.99
+  lng: 2.99
