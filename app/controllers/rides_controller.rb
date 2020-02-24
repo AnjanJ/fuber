@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RidesController < ApplicationController
-  before_action :set_ride, only: [:show, :update, :destroy]
+  before_action :set_ride, only: %i[show update destroy]
 
   # GET /rides
   def index
@@ -39,13 +41,14 @@ class RidesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ride
-      @ride = Ride.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def ride_params
-      params.require(:ride).permit(:user_id, :cab_id, :status, :destination_lat, :destination_lng, :distance, :cost, :paid)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ride
+    @ride = Ride.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def ride_params
+    params.require(:ride).permit(:user_id, :cab_id, :status, :destination_lat, :destination_lng, :distance, :cost, :paid)
+  end
 end
