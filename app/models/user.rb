@@ -7,4 +7,8 @@ class User < ApplicationRecord
                    lat_column_name: :lat,
                    lng_column_name: :lng
   has_many :rides
+
+  def set_location(latitude, longitutde)
+    update_columns(lat: latitude, lng: longitutde)
+  end
 end

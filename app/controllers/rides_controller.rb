@@ -19,7 +19,7 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(create_ride_params)
 
-    if @ride.save
+    if start_ride && @ride.cab?
       render json: @ride, status: :created, location: @ride
     else
       render json: @ride.errors, status: :unprocessable_entity
@@ -49,10 +49,17 @@ class RidesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def create_ride_params
-    params.require(:ride).permit(:user_id, :cab_id, :status, :destination_lat, :destination_lng)
+    params.require(:ride).permit(:user_id, :current_location_lat, :current_location_lng, :destination_lat, :destination_lng, :color)
   end
 
   def update_payment
     params.require(:ride).permit(:paid)
+  end
+
+  def start_ride
+    @ride.cab = @ride.find_nearest_cab(params[:ride][:color], params[:ride][:current_location_lat], params[:ride][:current_location_lng])
+    @ride.distance = @ride.calculate_distance
+    @ride.cost = @ride.add_cost
+    @ride.save
   end
 end
