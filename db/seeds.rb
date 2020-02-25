@@ -52,15 +52,11 @@ lngs = [
   )
 end
 
-location_picker = 1
-60.times do |no|
-  while Cab.all.size < 60
-    Cab.create(
-      color: no.odd? ? 'pink' : '',
-      on_duty: false,
-      lat: no > 15 ? lats[location_picker] + 0.002300 : lats[location_picker],
-      lng: no > 15 ? lngs[location_picker] + 0.015000 : lngs[location_picker]
-    )
-  end
-  location_picker = 1 if location_picker >= 15
+while Cab.all.size < 60
+  Cab.create(
+    color: Cab.last.id.odd? ? 'pink' : '',
+    on_duty: false,
+    lat: Cab.last.id > 15 ? lats[rand(1...15)] + 0.002300 : lats[rand(1...15)],
+    lng: Cab.last.id > 15 ? lngs[rand(1...15)] + 0.015000 : lngs[rand(1...15)]
+  )
 end
