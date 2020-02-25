@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_02_21_140146) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cabs", force: :cascade do |t|
     t.string "color"
     t.boolean "on_duty", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_02_21_140146) do
   end
 
   create_table "rides", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "cab_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "cab_id", null: false
     t.string "status"
     t.decimal "destination_lat"
     t.decimal "destination_lng"
