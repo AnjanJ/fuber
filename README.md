@@ -1,24 +1,17 @@
-# README
+# This Project uses folowing versions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* ruby 2.7.0
+* rails 6.0.2.1
 
-Things you may want to cover:
+# Set Up Instructions to be executed in same order
 
-* Ruby version
+* Clone the repo and cd into project folder
+* run bundle install
+* rails db:create
+* rails db:migrate
+* Run rails db:seed to get up and running with some data
+* Test - rails test
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Learnings
+* geokit-rails gem doesnt work with sqllite3
+* alaways read docs before using any new gem, will save lot of hair pulling
