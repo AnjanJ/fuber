@@ -14,10 +14,8 @@ class RidesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create ride' do
     assert_difference('Ride.count') do
-      post rides_url, params: { ride: { cab_id: @ride.cab_id, cost: @ride.cost,
-                                        destination_lat: @ride.destination_lat,
+      post rides_url, params: { ride: { destination_lat: @ride.destination_lat,
                                         destination_lng: @ride.destination_lng,
-                                        distance: @ride.distance,
                                         user_id: @ride.user_id } }, as: :json
     end
 

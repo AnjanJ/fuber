@@ -7,7 +7,7 @@ one:
   on_duty: false
 
 two:
-  color: "blue"
+  color: ""
   lat: 2.99
   lng: 2.99
   on_duty: false

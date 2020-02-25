@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CabTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should return true if color is pink' do
+    cab = cabs(:one)
+    assert cab.pink?
+  end
 end
