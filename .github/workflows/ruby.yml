@@ -24,6 +24,7 @@ jobs:
           cmd: install
       - name: Build and run tests
         env:
+          POSTGRES_PASSWORD: postgres
           DATABASE_URL: postgres://postgres:@localhost:5432/fuber_test
           RAILS_ENV: test
         run: |
