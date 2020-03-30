@@ -1,12 +1,7 @@
-name: Ruby
-
-on:
-  pull_request:
-    branches: [ master ]
-
+name: CI
+on: [push, pull_request]
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
     services:
       db:
@@ -19,17 +14,21 @@ jobs:
           --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.7.0
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.7.0
-    - name: Build and test with minitest
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec rails test
-        
-    - name: Pronto Ruby
-      uses: AdWerx/pronto-ruby@v2.5
-
+      - uses: actions/checkout@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Build and run tests
+        env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/fuber_test
+          RAILS_ENV: test
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rails db:prepare
+          bundle exec rails test
