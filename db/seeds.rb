@@ -48,9 +48,11 @@ lngs = [
   User.find_or_create_by(
     email: "#{no}user@a.com",
     lat: lats[no],
-    lng: lats[no]
+    lng: lngs[no]
   )
 end
+
+Cab.create(on_duty: true, color: 'pink', lat: lats[0], lng: lngs[0])
 
 while Cab.all.size < 60
   Cab.create(
