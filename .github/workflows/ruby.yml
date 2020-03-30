@@ -19,7 +19,7 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec test
+        bundle exec rails test
         
     - name: Pronto Ruby
       uses: AdWerx/pronto-ruby@v2.5
