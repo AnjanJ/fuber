@@ -57,8 +57,8 @@ while Cab.all.size < 60
   Cab.create(
     color: count.odd? ? 'pink' : '',
     on_duty: false,
-    lat: Cab.last.id > 15 ? lats[rand(1...15)] + 0.002300 : lats[rand(1...15)],
-    lng: Cab.last.id > 15 ? lngs[rand(1...15)] + 0.015000 : lngs[rand(1...15)]
+    lat: count > 15 ? lats[rand(1...15)] + 0.002300 : lats[rand(1...15)],
+    lng: count > 15 ? lngs[rand(1...15)] + 0.015000 : lngs[rand(1...15)]
   )
   count += 1
 end
