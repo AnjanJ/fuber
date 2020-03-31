@@ -52,13 +52,13 @@ lngs = [
   )
 end
 
-Cab.create(on_duty: true, color: 'pink', lat: lats[0], lng: lngs[0])
-
+count = 0
 while Cab.all.size < 60
   Cab.create(
-    color: Cab.last.present? && Cab.last.id&.odd? ? 'pink' : '',
+    color: count.odd? ? 'pink' : '',
     on_duty: false,
     lat: Cab.last.id > 15 ? lats[rand(1...15)] + 0.002300 : lats[rand(1...15)],
     lng: Cab.last.id > 15 ? lngs[rand(1...15)] + 0.015000 : lngs[rand(1...15)]
   )
+  count += 1
 end
