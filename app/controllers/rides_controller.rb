@@ -5,7 +5,9 @@ class RidesController < ApplicationController
 
   # GET /rides
   def index
-    @rides = Ride.all;render json: @rides
+    @rides = Ride.all
+
+    render json: @rides
   end
 
   # GET /rides/1
@@ -55,7 +57,7 @@ class RidesController < ApplicationController
   end
 
   def start_ride
-    @ride.cab = @ride.find_nearest_cab(params[:ride][:color],    params[:ride][:current_location_lat], params[:ride][:current_location_lng])
+    @ride.cab = @ride.find_nearest_cab(params[:ride][:color], params[:ride][:current_location_lat], params[:ride][:current_location_lng])
     @ride.distance = @ride.calculate_distance
     @ride.cost = @ride.add_cost
     @ride.save

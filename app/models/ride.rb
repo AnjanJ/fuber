@@ -46,7 +46,7 @@ class Ride < ApplicationRecord
   end
 
   def start_ride
-    update_columns(status: 'en route')
+    update_columns(status: "en route")
   end
 
   def make_payment
