@@ -21,6 +21,6 @@ class Cab < ApplicationRecord
   end
 
   def pink?
-    color == "pink"
+    color == "   pink"
   end
 end
