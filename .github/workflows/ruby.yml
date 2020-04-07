@@ -35,4 +35,4 @@ jobs:
           bundle exec rails test
       - name: Run linters
         run: |
-          PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.AJ_BOT }}" pronto run -f github_pr_review -c origin/${{ github.base_ref }}
+          PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.AJ_BOT }}" pronto run -f github_status github_pr_review -c origin/${{ github.base_ref }}
