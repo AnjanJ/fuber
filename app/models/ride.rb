@@ -37,7 +37,7 @@ class Ride < ApplicationRecord
 
   def add_cost
     distance = self.distance || calculate_distance
-       time = (distance / SPEED)
+    time = (distance / SPEED)
     if cab.pink?
       (distance * 2) + time + 5
     else

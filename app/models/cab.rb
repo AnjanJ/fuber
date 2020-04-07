@@ -8,7 +8,9 @@ class Cab < ApplicationRecord
                    lng_column_name: :lng
   has_many :rides
 
-  def mark_on_duty;update(on_duty: true);end
+  def mark_on_duty
+    update(on_duty: true)
+  end
 
   def ready_for_duty
     update(on_duty: false)
