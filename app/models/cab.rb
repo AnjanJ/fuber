@@ -14,7 +14,7 @@ class Cab < ApplicationRecord
     update(on_duty: false)
   end
 
-  def set_location(latitude, longitutde)
+  def set_location(latitude, longitutde    )
     update_columns(lat: latitude, lng: longitutde)
   end
 
