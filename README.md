@@ -1,3 +1,5 @@
+![CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=master)
+
 # This Project uses folowing versions
 
 * ruby 2.7.0
