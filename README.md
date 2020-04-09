@@ -1,8 +1,7 @@
 MASTER
 ![CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=master)
-
 DEVELOP
-![CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=develop)
 
 
 # This Project uses folowing versions
