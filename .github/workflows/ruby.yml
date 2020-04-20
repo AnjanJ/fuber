@@ -22,9 +22,11 @@ jobs:
             bundle-use-ruby-2.7.0
       - name: bundle install
         run: |
+          ls -la
           pwd
           cd ../..
           pwd
+          la -la
           sudo gem install bundler
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
