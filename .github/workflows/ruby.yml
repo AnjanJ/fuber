@@ -19,7 +19,7 @@ jobs:
           path: vendor/bundle
           key: bundle-use-ruby-2.7.0-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-            bundle-use-ruby-2.7.0-
+            bundle-use-ruby-2.7.0
       - name: bundle install
         run: |
           bundle config path vendor/bundle
