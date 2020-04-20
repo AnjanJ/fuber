@@ -22,6 +22,7 @@ jobs:
             bundle-use-ruby-2.7.0
       - name: bundle install
         run: |
+          ruby -v
           ls
           pwd
           cd ..
