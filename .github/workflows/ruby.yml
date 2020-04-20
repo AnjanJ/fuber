@@ -14,11 +14,23 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Setup Ruby 2.7.0
-        uses: actions/setup-ruby@v1
+      - uses: actions/cache@v1
         with:
-          use-ruby: 2.7.0
+          path: vendor/bundle
+          key: bundle-use-ruby-2.7.0
+          restore-keys: |
+            bundle-use-ruby-2.7.0
+      - name: bundle install
+        run: |
+          ruby -v
+          ls
+          pwd
+          cd ..
+          pwd
+          ls -la
+          sudo gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
