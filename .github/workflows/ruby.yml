@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Setup Ruby 2.7.0
+      - name: Setup Ruby 2.7.0 #github removed 2.7.0 support
         uses: actions/setup-ruby@v1
         with:
           use-ruby: 2.7.0
